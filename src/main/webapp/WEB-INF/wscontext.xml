@@ -8,11 +8,15 @@
         <jaxrs:serviceBeans>
             <ref bean="serviceBean" />
         </jaxrs:serviceBeans>
-
+        <jaxrs:providers>
+            <ref bean="jacksonProvider" />
+        </jaxrs:providers>
     </jaxrs:server>
 
     <bean id="serviceBean" class="de.dux.adressservice.AdressServiceImpl">
         <property name="dao" ref="contactDAO" />
     </bean>
+
+    <bean id="jacksonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
 
 </beans>
